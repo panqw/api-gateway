@@ -1,5 +1,7 @@
 package com.fly.gateway.executor;
 
+import com.fly.gateway.mapping.HttpStatement;
+
 import java.util.Map;
 
 public interface Executor {

@@ -1,5 +1,8 @@
 package com.fly.gateway.socket;
 
+import com.fly.gateway.session.Configuration;
+import com.fly.gateway.session.DefaultGatewaySessionFactory;
+import com.fly.gateway.socket.handlers.ProtocolDataHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -23,8 +26,8 @@ public class GatewayChannelInitializer extends ChannelInitializer<SocketChannel>
         line.addLast(new HttpRequestDecoder());
         line.addLast(new HttpResponseEncoder());
         line.addLast(new HttpObjectAggregator(1024 * 1024));
-        line.addLast(new GatewayServerHandler(configuration));
-        line.addLast(new AuthorizationHandler(configuration));
+//        line.addLast(new GatewayServerHandler(configuration));
+//        line.addLast(new AuthorizationHandler(configuration));
         line.addLast(new ProtocolDataHandler(gatewaySessionFactory));
     }
 }
